@@ -4,7 +4,7 @@ using CleanBO7.Domain.Entities;
 
 namespace CleanBO7.Application.TodoLists.Queries.GetTodos;
 
-public class TodoItemDto : IMapFrom<TodoItem>
+public class ProductDto : IMapFrom<Product>
 {
     public int Id { get; init; }
 
@@ -20,7 +20,7 @@ public class TodoItemDto : IMapFrom<TodoItem>
 
     public void Mapping(Profile profile)
     {
-        profile.CreateMap<TodoItem, TodoItemDto>()
-            .ForMember(d => d.Priority, opt => opt.MapFrom(s => (int)s.Priority));
+        profile.CreateMap<Product, ProductDto>()
+            .ForMember(d => d.Priority, opt => opt.MapFrom(s => (int)s.ProductId));
     }
 }

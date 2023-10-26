@@ -26,15 +26,15 @@ public class ExportTodosQueryHandler : IRequestHandler<ExportTodosQuery, ExportT
 
     public async Task<ExportTodosVm> Handle(ExportTodosQuery request, CancellationToken cancellationToken)
     {
-        var records = await _context.TodoItems
-                .Where(t => t.ListId == request.ListId)
-                .ProjectTo<TodoItemRecord>(_mapper.ConfigurationProvider)
+        var records = await _context.Products
+                .Where(t => t.ProductId == request.ListId)
+                .ProjectTo<ProductRecord>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
         var vm = new ExportTodosVm(
-            "TodoItems.csv",
+            "Productcsv",
             "text/csv",
-            _fileBuilder.BuildTodoItemsFile(records));
+            _fileBuilder.BuildProductsFile(records));
 
         return vm;
     }

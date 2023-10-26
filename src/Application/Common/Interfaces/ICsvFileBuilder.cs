@@ -4,5 +4,5 @@ namespace CleanBO7.Application.Common.Interfaces;
 
 public interface ICsvFileBuilder
 {
-    byte[] BuildTodoItemsFile(IEnumerable<TodoItemRecord> records);
+    byte[] BuildProductsFile(IEnumerable<ProductRecord> records);
 }

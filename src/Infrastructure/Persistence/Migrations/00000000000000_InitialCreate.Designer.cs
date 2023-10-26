@@ -24,7 +24,7 @@ namespace CleanBO7.Infrastructure.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CleanBO7.Domain.Entities.TodoItem", b =>
+            modelBuilder.Entity("CleanBO7.Domain.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -68,7 +68,7 @@ namespace CleanBO7.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("ListId");
 
-                    b.ToTable("TodoItems");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("CleanBO7.Domain.Entities.TodoList", b =>
@@ -444,7 +444,7 @@ namespace CleanBO7.Infrastructure.Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("CleanBO7.Domain.Entities.TodoItem", b =>
+            modelBuilder.Entity("CleanBO7.Domain.Entities.Product", b =>
                 {
                     b.HasOne("CleanBO7.Domain.Entities.TodoList", "List")
                         .WithMany("Items")

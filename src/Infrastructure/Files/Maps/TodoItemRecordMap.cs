@@ -4,9 +4,9 @@ using CsvHelper.Configuration;
 
 namespace CleanBO7.Infrastructure.Files.Maps;
 
-public class TodoItemRecordMap : ClassMap<TodoItemRecord>
+public class ProductRecordMap : ClassMap<ProductRecord>
 {
-    public TodoItemRecordMap()
+    public ProductRecordMap()
     {
         AutoMap(CultureInfo.InvariantCulture);
 

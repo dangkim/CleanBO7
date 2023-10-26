@@ -19,16 +19,16 @@ public class DeleteTodoListCommandHandler : IRequestHandler<DeleteTodoListComman
 
     public async Task Handle(DeleteTodoListCommand request, CancellationToken cancellationToken)
     {
-        var entity = await _context.TodoLists
-            .Where(l => l.Id == request.Id)
+        var entity = await _context.Products
+            .Where(l => l.ProductId == request.Id)
             .SingleOrDefaultAsync(cancellationToken);
 
         if (entity == null)
         {
-            throw new NotFoundException(nameof(TodoList), request.Id);
+            throw new NotFoundException(nameof(Product), request.Id);
         }
 
-        _context.TodoLists.Remove(entity);
+        _context.Products.Remove(entity);
 
         await _context.SaveChangesAsync(cancellationToken);
     }

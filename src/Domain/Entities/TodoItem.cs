@@ -1,6 +1,6 @@
 ﻿namespace CleanBO7.Domain.Entities;
 
-public class TodoItem : BaseAuditableEntity
+public class Product : BaseAuditableEntity
 {
     public int ListId { get; set; }
 

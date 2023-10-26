@@ -23,15 +23,15 @@ public class UpdateTodoListCommandHandler : IRequestHandler<UpdateTodoListComman
 
     public async Task Handle(UpdateTodoListCommand request, CancellationToken cancellationToken)
     {
-        var entity = await _context.TodoLists
+        var entity = await _context.Products
             .FindAsync(new object[] { request.Id }, cancellationToken);
 
         if (entity == null)
         {
-            throw new NotFoundException(nameof(TodoList), request.Id);
+            throw new NotFoundException(nameof(Product), request.Id);
         }
 
-        entity.Title = request.Title;
+        entity.DisplayName = request.Title;
 
         await _context.SaveChangesAsync(cancellationToken);
 

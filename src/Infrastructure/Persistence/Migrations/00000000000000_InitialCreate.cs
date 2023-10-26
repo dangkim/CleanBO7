@@ -230,7 +230,7 @@ namespace CleanBO7.Infrastructure.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TodoItems",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -248,9 +248,9 @@ namespace CleanBO7.Infrastructure.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TodoItems", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TodoItems_TodoLists_ListId",
+                        name: "FK_Products_TodoLists_ListId",
                         column: x => x.ListId,
                         principalTable: "TodoLists",
                         principalColumn: "Id",
@@ -333,8 +333,8 @@ namespace CleanBO7.Infrastructure.Persistence.Migrations
                 columns: new[] { "SubjectId", "SessionId", "Type" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_TodoItems_ListId",
-                table: "TodoItems",
+                name: "IX_Products_ListId",
+                table: "Products",
                 column: "ListId");
         }
 
@@ -365,7 +365,7 @@ namespace CleanBO7.Infrastructure.Persistence.Migrations
                 name: "PersistedGrants");
 
             migrationBuilder.DropTable(
-                name: "TodoItems");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

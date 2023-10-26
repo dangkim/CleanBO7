@@ -27,21 +27,21 @@ public class GetTodosTests : BaseTestFixture
     {
         await RunAsDefaultUserAsync();
 
-        await AddAsync(new TodoList
-        {
-            Title = "Shopping",
-            Colour = Colour.Blue,
-            Items =
-                    {
-                        new TodoItem { Title = "Apples", Done = true },
-                        new TodoItem { Title = "Milk", Done = true },
-                        new TodoItem { Title = "Bread", Done = true },
-                        new TodoItem { Title = "Toilet paper" },
-                        new TodoItem { Title = "Pasta" },
-                        new TodoItem { Title = "Tissues" },
-                        new TodoItem { Title = "Tuna" }
-                    }
-        });
+        //await AddAsync(new TodoList
+        //{
+        //    Title = "Shopping",
+        //    Colour = Colour.Blue,
+        //    Items =
+        //            {
+        //                new Product { Title = "Apples", Done = true },
+        //                new Product { Title = "Milk", Done = true },
+        //                new Product { Title = "Bread", Done = true },
+        //                new Product { Title = "Toilet paper" },
+        //                new Product { Title = "Pasta" },
+        //                new Product { Title = "Tissues" },
+        //                new Product { Title = "Tuna" }
+        //            }
+        //});
 
         var query = new GetTodosQuery();
 

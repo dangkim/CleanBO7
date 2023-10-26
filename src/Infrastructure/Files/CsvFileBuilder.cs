@@ -8,14 +8,14 @@ namespace CleanBO7.Infrastructure.Files;
 
 public class CsvFileBuilder : ICsvFileBuilder
 {
-    public byte[] BuildTodoItemsFile(IEnumerable<TodoItemRecord> records)
+    public byte[] BuildProductsFile(IEnumerable<ProductRecord> records)
     {
         using var memoryStream = new MemoryStream();
         using (var streamWriter = new StreamWriter(memoryStream))
         {
             using var csvWriter = new CsvWriter(streamWriter, CultureInfo.InvariantCulture);
 
-            csvWriter.Context.RegisterClassMap<TodoItemRecordMap>();
+            csvWriter.Context.RegisterClassMap<ProductRecordMap>();
             csvWriter.WriteRecords(records);
         }
 

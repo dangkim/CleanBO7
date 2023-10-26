@@ -3,11 +3,11 @@ using CleanBO7.Domain.Entities;
 
 namespace CleanBO7.Application.TodoLists.Queries.GetTodos;
 
-public class TodoListDto : IMapFrom<TodoList>
+public class TodoListDto : IMapFrom<Product>
 {
     public TodoListDto()
     {
-        Items = Array.Empty<TodoItemDto>();
+        Items = Array.Empty<ProductDto>();
     }
 
     public int Id { get; init; }
@@ -16,5 +16,5 @@ public class TodoListDto : IMapFrom<TodoList>
 
     public string? Colour { get; init; }
 
-    public IReadOnlyCollection<TodoItemDto> Items { get; init; }
+    public IReadOnlyCollection<ProductDto> Items { get; init; }
 }

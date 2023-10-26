@@ -9,6 +9,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Entities\TodoItem.cs" />
+      <Compile Remove="Entities\TodoList.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="MediatR" Version="12.0.1" />
     </ItemGroup>
 
