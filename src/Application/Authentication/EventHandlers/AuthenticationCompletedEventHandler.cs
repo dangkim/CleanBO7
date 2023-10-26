@@ -2,13 +2,13 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace CleanBO7.Application.Products.EventHandlers;
+namespace CleanBO7.Application.Authentication.EventHandlers;
 
-public class ProductCompletedEventHandler : INotificationHandler<ProductCompletedEvent>
+public class AuthenticationCompletedEventHandler : INotificationHandler<ProductCompletedEvent>
 {
-    private readonly ILogger<ProductCompletedEventHandler> _logger;
+    private readonly ILogger<AuthenticationCompletedEventHandler> _logger;
 
-    public ProductCompletedEventHandler(ILogger<ProductCompletedEventHandler> logger)
+    public AuthenticationCompletedEventHandler(ILogger<AuthenticationCompletedEventHandler> logger)
     {
         _logger = logger;
     }

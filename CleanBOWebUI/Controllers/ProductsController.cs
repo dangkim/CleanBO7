@@ -12,7 +12,7 @@ namespace CleanBO7.CleanBOWebUI.Controllers;
 
 [Authorize]
 public class ProductsController : ApiControllerBase
-{
+{    
     [HttpGet]
     public async Task<ActionResult<PaginatedList<ProductBriefDto>>> GetProductsWithPagination([FromQuery] GetProductsWithPaginationQuery query)
     {

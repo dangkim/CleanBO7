@@ -1,13 +1,17 @@
-﻿using CleanBO7.Application.Common.Interfaces;
+﻿using System.Text;
+using CleanBO7.Application.Common.Interfaces;
+using CleanBO7.Application.Configs;
 using CleanBO7.Infrastructure.Files;
 using CleanBO7.Infrastructure.Identity;
 using CleanBO7.Infrastructure.Persistence;
 using CleanBO7.Infrastructure.Persistence.Interceptors;
 using CleanBO7.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -45,10 +49,27 @@ public static class ConfigureServices
         //services.AddTransient<IIdentityService, IdentityService>();
         services.AddTransient<ICsvFileBuilder, CsvFileBuilder>();
 
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = configuration["Jwt:Issuer"],
+                    ValidAudience = configuration["Jwt:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
+                };
+            });
+
         //services.AddAuthentication().AddIdentityServerJwt();
 
         services.AddAuthorization(options =>
             options.AddPolicy("CanPurge", policy => policy.RequireRole("Administrator")));
+
+        services
+            .Configure<AppSettingsConfig>(configuration);
 
         return services;
     }

@@ -14,7 +14,7 @@ public class CreateProductTests : BaseTestFixture
     [Test]
     public async Task ShouldRequireMinimumFields()
     {
-        var command = new CreateProductCommand();
+        var command = new CreateAuthenticationCommand();
 
         await FluentActions.Invoking(() =>
             SendAsync(command)).Should().ThrowAsync<ValidationException>();
@@ -30,7 +30,7 @@ public class CreateProductTests : BaseTestFixture
             Title = "New List"
         });
 
-        var command = new CreateProductCommand
+        var command = new CreateAuthenticationCommand
         {
             ListId = listId,
             Title = "Tasks"

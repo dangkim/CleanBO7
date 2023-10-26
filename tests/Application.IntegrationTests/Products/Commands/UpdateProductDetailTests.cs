@@ -31,7 +31,7 @@ public class UpdateProductDetailTests : BaseTestFixture
             Title = "New List"
         });
 
-        var itemId = await SendAsync(new CreateProductCommand
+        var itemId = await SendAsync(new CreateAuthenticationCommand
         {
             ListId = listId,
             Title = "New Item"

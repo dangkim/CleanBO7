@@ -1,9 +1,9 @@
 ﻿using CleanBO7.Application.Common.Mappings;
 using CleanBO7.Domain.Entities;
 
-namespace CleanBO7.Application.Products.Queries.GetProductsWithPagination;
+namespace CleanBO7.Application.Authentication.Queries.GetProductsWithPagination;
 
-public class ProductBriefDto : IMapFrom<Product>
+public class AuthenticationBriefDto : IMapFrom<Product>
 {
     public int ProductId { get; init; }
 
